@@ -10,3 +10,7 @@ body, html {
     width: 100%;
   }
 }
+
+.hiddenWord {
+  letter-spacing: 10px;
+}

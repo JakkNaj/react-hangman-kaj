@@ -2,9 +2,14 @@ import React, {useEffect, useState} from 'react';
 import fetchRandomWord from "../modules/wordFetcher";
 import KeyboardButton from "./KeyboardButton";
 import Modal from "./modal/Modal";
+import ScoreTracker from "./ScoreTracker";
+import TopPlayers from "./TopPlayers";
+import {useGameStatus} from "./GameStatusContext";
 
 import winSound from '../assets/win-sound.mp3';
 import loseSound from '../assets/lose-sound.mp3';
+import SVGHangman from "./svgs/SVGhangman";
+
 
 const Hangman = () => {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -15,8 +20,7 @@ const Hangman = () => {
     const [corrects, setCorrects] = useState([]);
     const [fails, setFails] = useState([]);
     const [shouldResetButtons, setShouldResetButtons] = useState(false);
-    const [playerWon, setPlayerWon] = useState(false);
-    const [playerLost, setPlayerLost] = useState(false);
+    const { gameStatus, setGameStatus } = useGameStatus();
 
     const getRandomWord = () => {
         const fetchData = async () => {
@@ -41,7 +45,7 @@ const Hangman = () => {
 
     const resolveBadGuess = () => {
         if (fails.length + 1 >= maxFails){
-            setPlayerLost(true);
+            setGameStatus("lost");
         }
     }
 
@@ -57,10 +61,9 @@ const Hangman = () => {
                 return wordLetter;
             })
             .join('')
-        if (won) setPlayerWon(true);
+        if (won) setGameStatus("won");
         setHiddenWord(w);
     }
-
 
     useEffect(() => {
         setHiddenWord(word
@@ -72,8 +75,7 @@ const Hangman = () => {
     const reset = () => {
         getRandomWord()
         setShouldResetButtons(true);
-        setPlayerWon(false);
-        setPlayerLost(false);
+        setGameStatus(null);
         setCorrects([]);
         setFails([]);
     }
@@ -85,7 +87,9 @@ const Hangman = () => {
     return (
         <div>
             <p>{word}</p>
-            <p>{hiddenWord}</p>
+            <p className="hiddenWord">{hiddenWord}</p>
+            <ScoreTracker />
+            <TopPlayers />
             <div className="keyboard">
                 {alphabet
                     .map((letter, index) =>
@@ -99,13 +103,15 @@ const Hangman = () => {
                         />
                     )}
             </div>
-            {playerWon && (
+            { fails.length > 0 && <SVGHangman numberOfIncorrectGuesses={fails.length}/>}
+
+            {gameStatus === "won" && (
                 <div>
                     <Modal onPlayAgain={reset} message={"You win!"} word={word}/>
                     <audio src={winSound} autoPlay/>
                 </div>
             )}
-            {playerLost && (
+            {gameStatus === "lost" && (
                 <div>
                     <Modal onPlayAgain={reset} message={"You lose!"} word={word}/>
                     <audio src={loseSound} autoPlay/>

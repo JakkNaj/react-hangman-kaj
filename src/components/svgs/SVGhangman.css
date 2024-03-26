@@ -1,0 +1,9 @@
+.svgs-container {
+    position: relative;
+}
+
+.svg-part {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

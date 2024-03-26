@@ -1,11 +1,12 @@
 import './App.css';
 import Hangman from "./components/Hangman";
+import {GameStatusProvider} from "./components/GameStatusContext";
 
 const App = () => {
   return (
-      <div>
+      <GameStatusProvider>
         <Hangman />
-      </div>
+      </GameStatusProvider>
   );
 }
 
