@@ -1,6 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import fetchRandomWord from "../modules/wordFetcher";
 import KeyboardButton from "./KeyboardButton";
+import Modal from "./modal/Modal";
+
+import winSound from '../assets/win-sound.mp3';
+import loseSound from '../assets/lose-sound.mp3';
 
 const Hangman = () => {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -68,6 +72,10 @@ const Hangman = () => {
     const reset = () => {
         getRandomWord()
         setShouldResetButtons(true);
+        setPlayerWon(false);
+        setPlayerLost(false);
+        setCorrects([]);
+        setFails([]);
     }
 
     useEffect(() => {
@@ -91,6 +99,18 @@ const Hangman = () => {
                         />
                     )}
             </div>
+            {playerWon && (
+                <div>
+                    <Modal onPlayAgain={reset} message={"You win!"} word={word}/>
+                    <audio src={winSound} autoPlay/>
+                </div>
+            )}
+            {playerLost && (
+                <div>
+                    <Modal onPlayAgain={reset} message={"You lose!"} word={word}/>
+                    <audio src={loseSound} autoPlay/>
+                </div>
+            )}
         </div>
     );
 };
