@@ -1,0 +1,9 @@
+.fileImporter {
+    width: 100%;
+    height: 200px;
+    border:2px dashed #ccc;
+    text-align: center;
+    padding-top: 80px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
