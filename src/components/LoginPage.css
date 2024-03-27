@@ -1,0 +1,60 @@
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    padding: 8px;
+}
+
+.loginBox {
+    width: 40%;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-10px); }
+    20% { transform: translateX(10px); }
+    30% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    50% { transform: translateX(-6px); }
+    60% { transform: translateX(6px); }
+    70% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+    90% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
+
+.error {
+    color:red;
+    font-weight: 400;
+}
+

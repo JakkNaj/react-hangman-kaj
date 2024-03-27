@@ -1,14 +1,15 @@
 import './App.css';
 import Hangman from "./components/Hangman";
 import {GameStatusProvider} from "./components/GameStatusContext";
+import LoginPage from "./components/LoginPage";
+import Controller from "./components/Controller";
 
 const App = () => {
   return (
-      <GameStatusProvider>
-        <Hangman />
-      </GameStatusProvider>
+      <Controller />
   );
 }
 
 
 export default App;
+
