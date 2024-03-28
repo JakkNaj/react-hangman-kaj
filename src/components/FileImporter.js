@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './FileImporter.css'; // Import CSS file for styling
 
 const FileImporter = () => {
     const [fileContent, setFileContent] = useState(null);
@@ -42,28 +43,22 @@ const FileImporter = () => {
 
     return (
         <div
+            className="file-importer-container"
             onDragOver={handleDragOver}
             onDrop={handleDrop}
             onClick={handleFileLabelClick}
-            style={{
-                width: '100%',
-                height: '200px',
-                border: '2px dashed #ccc',
-                textAlign: 'center',
-                paddingTop: '80px',
-                boxSizing: 'border-box',
-                cursor: 'pointer',
-            }}
         >
             <input
                 type="file"
-                style={{ display: 'none' }}
+                className="file-input"
                 onChange={handleFileChange}
                 id="fileInput"
             />
-            <label htmlFor="fileInput">Click here or drag and drop a file to import</label>
+            <label htmlFor="fileInput" className="file-label">
+                Click here or drag and drop a file to import
+            </label>
             {parsedData.length > 0 && (
-                <div>
+                <div className="parsed-data">
                     <h3>Parsed Data:</h3>
                     <ul>
                         {parsedData.map((word, index) => (

@@ -1,4 +1,4 @@
-.container {
+.login-container {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -7,8 +7,16 @@
     padding: 8px;
 }
 
+.login-container h3 {
+    margin-bottom: 10px;
+}
+
+.login-container h3, .login-container .toggle-switch-container {
+    align-self: start;
+}
+
 .loginBox {
-    width: 40%;
+    width: max(320px);
     padding: 20px;
     border: 2px solid #ccc;
     border-radius: 5px;

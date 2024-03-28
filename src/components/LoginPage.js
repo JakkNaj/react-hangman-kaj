@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
+import ChooseData from "./ChooseData";
 const LoginPage = ({ onLogin }) => {
     const [name, setName] = useState('');
     const [shouldShake, setShouldShake] = useState(false);
@@ -18,10 +19,11 @@ const LoginPage = ({ onLogin }) => {
     };
 
     return (
-        <div className="container">
+        <div className="login-container">
             <div className="loginBox">
                 <h2>Welcome!</h2>
-                {showErrorMessage ? <p className="error">Cannot continue without a name!</p> : <p>Please enter you name</p>}
+                {showErrorMessage ? <p className="error">Cannot continue without a name!</p> : <p>Please enter you name!</p>}
+                <h3>Choose Name</h3>
                 <input
                     type="text"
                     value={name}
@@ -30,7 +32,10 @@ const LoginPage = ({ onLogin }) => {
                     placeholder="Enter your name"
                     autoFocus
                 />
-                <button className="button" onClick={handleLogin}>Log In</button>
+
+                <ChooseData />
+
+                <button className="button" onClick={handleLogin}>Let's play!</button>
             </div>
         </div>
     );

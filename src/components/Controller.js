@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LandingPage from './LoginPage';
+import LoginPage from './LoginPage';
 import ChooseData from "./ChooseData";
 import { GameStatusProvider } from "./GameStatusContext";
 import Hangman from "./Hangman";
@@ -25,7 +25,7 @@ const Controller = () => {
 
     return (
         <div>
-            {!loggedIn && <LandingPage onLogin={handleLogin} />}
+            {!loggedIn && <LoginPage onLogin={handleLogin} />}
 
             {loggedIn && !dataChosen && <ChooseData handleChooseData={handleChooseData} />}
 
