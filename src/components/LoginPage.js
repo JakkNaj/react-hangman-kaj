@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
 import ChooseData from "./ChooseData";
-const LoginPage = ({ onLogin }) => {
+const LoginPage = ({ onLogin, onData }) => {
     const [name, setName] = useState('');
     const [shouldShake, setShouldShake] = useState(false);
     const [showErrorMessage, setShowErrorMessage] = useState(false);
@@ -33,7 +33,7 @@ const LoginPage = ({ onLogin }) => {
                     autoFocus
                 />
 
-                <ChooseData />
+                <ChooseData onData={onData}/>
 
                 <button className="button" onClick={handleLogin}>Let's play!</button>
             </div>

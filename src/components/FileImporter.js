@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
-import './FileImporter.css'; // Import CSS file for styling
+import React from 'react';
+import './FileImporter.css';
 
-const FileImporter = () => {
-    const [fileContent, setFileContent] = useState(null);
-    const [parsedData, setParsedData] = useState([]);
-
+const FileImporter = ({ onData }) => {
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         readFileContent(file);
@@ -25,7 +22,6 @@ const FileImporter = () => {
 
         reader.onload = (event) => {
             const content = event.target.result;
-            setFileContent(content);
             parseFileContent(content);
         };
 
@@ -34,10 +30,12 @@ const FileImporter = () => {
 
     const parseFileContent = (content) => {
         const lines = content.split('\n').map(line => line.trim());
-        setParsedData(lines);
+        alert("sending data from FileImporter to ChooseData");
+        onData(lines);
     };
 
-    const handleFileLabelClick = () => {
+    const handleFileLabelClick = (e) => {
+        e.preventDefault();
         document.getElementById('fileInput').click();
     };
 
@@ -46,7 +44,6 @@ const FileImporter = () => {
             className="file-importer-container"
             onDragOver={handleDragOver}
             onDrop={handleDrop}
-            onClick={handleFileLabelClick}
         >
             <input
                 type="file"
@@ -54,19 +51,9 @@ const FileImporter = () => {
                 onChange={handleFileChange}
                 id="fileInput"
             />
-            <label htmlFor="fileInput" className="file-label">
+            <label htmlFor="fileInput" className="file-label" onClick={handleFileLabelClick}>
                 Click here or drag and drop a file to import
             </label>
-            {parsedData.length > 0 && (
-                <div className="parsed-data">
-                    <h3>Parsed Data:</h3>
-                    <ul>
-                        {parsedData.map((word, index) => (
-                            <li key={index}>{word}</li>
-                        ))}
-                    </ul>
-                </div>
-            )}
         </div>
     );
 };

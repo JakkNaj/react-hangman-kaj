@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FileImporter from './FileImporter';
 import './ChooseData.css';
 
-const ChooseData = ({ handleChooseData }) => {
+const ChooseData = ({ onData }) => {
     const [toggleState, setToggleState] = useState(true);
 
     const handleToggleChange = () => {
@@ -27,8 +27,7 @@ const ChooseData = ({ handleChooseData }) => {
                     {toggleState ? 'Dictionary' : 'Own Data'}
                 </span>
             </div>
-
-            {!toggleState && (<FileImporter />)}
+            {!toggleState && (<FileImporter onData={onData}/>)}
         </div>
     );
 };

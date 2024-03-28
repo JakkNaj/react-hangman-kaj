@@ -8,6 +8,7 @@ const Controller = () => {
     const [loggedIn, setLoggedIn] = useState(false);
     const [dataChosen, setDataChosen] = useState(false);
     const [username, setUsername] = useState('');
+    const [data, setData] = useState([]);
 
     const handleLogin = (name) => {
         setUsername(name);
@@ -19,15 +20,15 @@ const Controller = () => {
         setLoggedIn(false);
     };
 
-    const handleChooseData = () => {
+    const handleChosenData = (d) => {
         setDataChosen(true);
+        setData(d);
+        console.log("data saved in controller :\n"  + d);
     }
 
     return (
         <div>
-            {!loggedIn && <LoginPage onLogin={handleLogin} />}
-
-            {loggedIn && !dataChosen && <ChooseData handleChooseData={handleChooseData} />}
+            {!loggedIn && <LoginPage onLogin={handleLogin} onData={handleChosenData}/>}
 
             {dataChosen &&
                 <GameStatusProvider>
