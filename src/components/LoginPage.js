@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import './LoginPage.css';
 import ChooseData from "./ChooseData";
-const LoginPage = ({ onLogin, onData }) => {
+import {GlobalContext} from "./GlobalContext";
+const LoginPage = () => {
+    const { setUsername } = useContext(GlobalContext);
     const [name, setName] = useState('');
     const [shouldShake, setShouldShake] = useState(false);
     const [showErrorMessage, setShowErrorMessage] = useState(false);
 
     const handleLogin = () => {
-        if (name) {
-            onLogin(name);
-        } else {
+        if (!name) {
             setShouldShake(true);
             setShowErrorMessage(true);
             setTimeout(() => {
                 setShouldShake(false);
             }, 500);
+        } else {
+            setUsername(name);
         }
     };
 
@@ -33,7 +35,7 @@ const LoginPage = ({ onLogin, onData }) => {
                     autoFocus
                 />
 
-                <ChooseData onData={onData}/>
+                <ChooseData />
 
                 <button className="button" onClick={handleLogin}>Let's play!</button>
             </div>

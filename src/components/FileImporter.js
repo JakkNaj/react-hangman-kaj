@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './FileImporter.css';
+import {GlobalContext} from "./GlobalContext";
 
-const FileImporter = ({ onData }) => {
+const FileImporter = () => {
+    const { setData } = useContext(GlobalContext);
+
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         readFileContent(file);
@@ -30,8 +33,7 @@ const FileImporter = ({ onData }) => {
 
     const parseFileContent = (content) => {
         const lines = content.split('\n').map(line => line.trim());
-        alert("sending data from FileImporter to ChooseData");
-        onData(lines);
+        setData(lines);
     };
 
     const handleFileLabelClick = (e) => {
