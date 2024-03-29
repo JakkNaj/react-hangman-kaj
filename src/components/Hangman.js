@@ -28,8 +28,7 @@ const Hangman = () => {
         if (data.length > 0){
             const randomIndex = Math.floor(Math.random() * data.length);
             const randomWord = data[randomIndex];
-            setWord(randomWord);
-            console.log(randomWord);
+            setWord(randomWord.toUpperCase());
         } else {
             const fetchData = async () => {
                 const fetchedWord = await fetchRandomWord();

@@ -3,66 +3,41 @@ import {saveScoreToLocal, loadScoreFromLocal} from '../modules/localStorageManip
 import {useGameStatus} from "./GameStatusContext";
 import {GlobalContext} from "./GlobalContext";
 
+import './ScoreTracker.css';
+
 const ScoreTracker = () => {
-    const [name, setName] = useState('');
     const [score, setScore] = useState(0);
-    const [isScoreLoaded, setIsScoreLoaded] = useState(false);
-    const [isLoggedOut, setIsLoggedOut] = useState(true);
 
     const { gameStatus } = useGameStatus();
     const { username } = useContext(GlobalContext);
 
     useEffect(() => {
-        if (isScoreLoaded) {
-            const loadedScore = loadScoreFromLocal(name);
+        if (username) {
+            const loadedScore = loadScoreFromLocal(username);
             setScore(loadedScore);
         }
-    }, [isScoreLoaded, name]);
+    }, [username]);
 
     useEffect(() => {
-        if (gameStatus === "won") {
-            const newScore = loadScoreFromLocal(name) + 1;
-            setScore(newScore);
-            saveScoreToLocal(name, newScore);
-        } else if (gameStatus === "lost") {
-            const newScore = loadScoreFromLocal(name) - 1;
-            setScore(newScore);
-            saveScoreToLocal(name, newScore);
+        if (username) {
+            if (gameStatus === "won") {
+                const newScore = loadScoreFromLocal(username) + 1;
+                setScore(newScore);
+                saveScoreToLocal(username, newScore);
+            } else if (gameStatus === "lost") {
+                const newScore = loadScoreFromLocal(username) - 1;
+                setScore(newScore);
+                saveScoreToLocal(username, newScore);
+            }
         }
-    }, [gameStatus, name]);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setIsScoreLoaded(true);
-        setIsLoggedOut(false);
-        const loadedScore = loadScoreFromLocal(name);
-        setScore(loadedScore);
-    };
-
-    const handleLogout = () => {
-        setName('');
-        setScore(0);
-        setIsScoreLoaded(false);
-        setIsLoggedOut(true);
-    };
+    }, [gameStatus, username]);
 
     return (
-        <div>
-            {isLoggedOut ? (
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        Name:
-                        <input type="text" value={username} onChange={(e) => setName(e.target.value)} />
-                    </label>
-                    <button type="submit">Log In</button>
-                </form>
-            ) : (
-                <>
-                    <h2>Player's name: {name}</h2>
-                    <button onClick={handleLogout}>Log Out</button>
-                    <p>{name}'s Score: {score}</p>
-                </>
-            )}
+        <div className="score-tracker-grid">
+            <div className="top-row">Player's name:</div>
+            <div className="top-row">Score:</div>
+            <div>{username}</div>
+            <div>{score}</div>
         </div>
     );
 };

@@ -38,7 +38,7 @@ const LoginPage = () => {
 
                 <ChooseData />
 
-                <button className="button" onClick={handleLogin}>Let's play!</button>
+                <button className="button" onClick={handleLogin} id="playBtn">Let's play!</button>
             </div>
         </div>
     );
