@@ -6,14 +6,13 @@ import React, {useContext} from "react";
 import {GlobalContext} from "./components/GlobalContext";
 
 const App = () => {
-  const { loggedIn, dataChosen } = useContext(GlobalContext);
+  const { loggedIn } = useContext(GlobalContext);
 
   return (
       <div>
         {!loggedIn && <LoginPage />}
 
-
-        {dataChosen &&
+        {loggedIn &&
             <GameStatusProvider>
               <Hangman />
             </GameStatusProvider>

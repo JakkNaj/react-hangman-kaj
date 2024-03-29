@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import fetchRandomWord from "../modules/wordFetcher";
+import React, {useContext, useEffect, useState} from 'react';
 import KeyboardButton from "./KeyboardButton";
 import Modal from "./modal/Modal";
 import ScoreTracker from "./ScoreTracker";
@@ -9,6 +8,8 @@ import {useGameStatus} from "./GameStatusContext";
 import winSound from '../assets/win-sound.mp3';
 import loseSound from '../assets/lose-sound.mp3';
 import SVGHangman from "./svgs/SVGhangman";
+import {GlobalContext} from "./GlobalContext";
+import {fetchRandomWord} from "../modules/wordFetcher";
 
 
 const Hangman = () => {
@@ -21,16 +22,23 @@ const Hangman = () => {
     const [fails, setFails] = useState([]);
     const [shouldResetButtons, setShouldResetButtons] = useState(false);
     const { gameStatus, setGameStatus } = useGameStatus();
+    const { data } = useContext(GlobalContext);
 
     const getRandomWord = () => {
-        const fetchData = async () => {
-            const fetchedWord = await fetchRandomWord();
-            if (fetchedWord) {
-                setWord(fetchedWord);
-            }
-        };
-
-        fetchData();
+        if (data.length > 0){
+            const randomIndex = Math.floor(Math.random() * data.length);
+            const randomWord = data[randomIndex];
+            setWord(randomWord);
+            console.log(randomWord);
+        } else {
+            const fetchData = async () => {
+                const fetchedWord = await fetchRandomWord();
+                if (fetchedWord) {
+                    setWord(fetchedWord);
+                }
+            };
+            fetchData();
+        }
     }
 
     const onGuess = letter => {

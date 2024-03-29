@@ -3,7 +3,7 @@ import './LoginPage.css';
 import ChooseData from "./ChooseData";
 import {GlobalContext} from "./GlobalContext";
 const LoginPage = () => {
-    const { setUsername } = useContext(GlobalContext);
+    const { setUsername, setLoggedIn } = useContext(GlobalContext);
     const [name, setName] = useState('');
     const [shouldShake, setShouldShake] = useState(false);
     const [showErrorMessage, setShowErrorMessage] = useState(false);
@@ -17,6 +17,7 @@ const LoginPage = () => {
             }, 500);
         } else {
             setUsername(name);
+            setLoggedIn(true);
         }
     };
 
@@ -24,7 +25,7 @@ const LoginPage = () => {
         <div className="login-container">
             <div className="loginBox">
                 <h2>Welcome!</h2>
-                {showErrorMessage ? <p className="error">Cannot continue without a name!</p> : <p>Please enter you name!</p>}
+                {showErrorMessage ? <p className="error">Cannot continue without a name!</p> : <p>Please enter your name!</p>}
                 <h3>Choose Name</h3>
                 <input
                     type="text"

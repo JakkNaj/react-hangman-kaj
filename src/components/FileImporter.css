@@ -35,3 +35,22 @@
     font-size: 14px;
     margin-bottom: 5px;
 }
+
+.import-status {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.import-status.success {
+    background-color: green;
+}
+
+.import-status.error {
+    background-color: red;
+}
+
+.import-status i {
+    margin-right: 5px;
+}

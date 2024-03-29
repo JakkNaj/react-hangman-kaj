@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {saveScoreToLocal, loadScoreFromLocal} from '../modules/localStorageManipulator.js'
 import {useGameStatus} from "./GameStatusContext";
+import {GlobalContext} from "./GlobalContext";
 
 const ScoreTracker = () => {
     const [name, setName] = useState('');
@@ -8,7 +9,8 @@ const ScoreTracker = () => {
     const [isScoreLoaded, setIsScoreLoaded] = useState(false);
     const [isLoggedOut, setIsLoggedOut] = useState(true);
 
-    const {gameStatus} = useGameStatus();
+    const { gameStatus } = useGameStatus();
+    const { username } = useContext(GlobalContext);
 
     useEffect(() => {
         if (isScoreLoaded) {
@@ -50,7 +52,7 @@ const ScoreTracker = () => {
                 <form onSubmit={handleSubmit}>
                     <label>
                         Name:
-                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                        <input type="text" value={username} onChange={(e) => setName(e.target.value)} />
                     </label>
                     <button type="submit">Log In</button>
                 </form>
