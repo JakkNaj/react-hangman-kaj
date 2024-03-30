@@ -6,7 +6,7 @@ const FileImporter = () => {
 
     const [importStatus, setImportStatus] = useState(null);
 
-    const { setData } = useContext(GlobalContext);
+    const { setData, setDataLoaded } = useContext(GlobalContext);
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -37,9 +37,10 @@ const FileImporter = () => {
     const parseFileContent = (content) => {
         try {
             const parsedContent = JSON.parse(content);
-            if (parsedContent.data && Array.isArray(parsedContent.data)) {
+            if (parsedContent.data !== undefined && Array.isArray(parsedContent.data)) {
                 setData(parsedContent.data);
                 setImportStatus({ success: true, message: "Data successfully loaded" });
+                setDataLoaded(true);
             } else {
                 setImportStatus({ success: false, message: "Failed to parse JSON content. The 'data' attribute is missing or is not an array." });
             }
