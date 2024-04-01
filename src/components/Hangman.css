@@ -1,0 +1,13 @@
+.keyboard {
+    background: #F6F6F6;
+    padding: 45px 40px;
+    border-radius: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+
+

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import './KeyboardButton.css';
 
 function KeyboardButton({ letter, onClick, isCorrectGuess, shouldReset, onReset }) {
     const [disabled, setDisabled] = useState(false);
@@ -29,9 +30,12 @@ function KeyboardButton({ letter, onClick, isCorrectGuess, shouldReset, onReset 
             onClick={handleClick}
             disabled={disabled}
         >
+            {/*button styling taken from: https://codepen.io/stephenkilbourn/pen/zYEBbea */}
+            <span className="front">
             {letter}
+            </span>
         </button>
-    );
+);
 }
 
 export default KeyboardButton;

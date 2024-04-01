@@ -11,6 +11,7 @@ import SVGHangman from "./SVGhangman";
 import {GlobalContext} from "./GlobalContext";
 import {fetchRandomWord} from "../modules/wordFetcher";
 
+import './Hangman.css';
 
 const Hangman = () => {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -75,7 +76,7 @@ const Hangman = () => {
     useEffect(() => {
         setHiddenWord(word
             .split('')
-            .map(letter => '_')
+            .map(() => '_')
             .join(''));
     }, [word]);
 
@@ -93,37 +94,40 @@ const Hangman = () => {
 
     return (
         <div>
-            <p>{word}</p>
-            <p className="hiddenWord">{hiddenWord}</p>
             <ScoreTracker />
             <TopPlayers />
-            <div className="keyboard">
-                {alphabet
-                    .map((letter, index) =>
-                        < KeyboardButton
-                            key={index}
-                            letter={letter}
-                            onClick={onGuess}
-                            isCorrectGuess={word.includes(letter)}
-                            shouldReset={shouldResetButtons}
-                            onReset={() => setShouldResetButtons(false)}
-                        />
-                    )}
-            </div>
-            { fails.length > 0 && <SVGHangman numberOfIncorrectGuesses={fails.length}/>}
+            <div>
+                <p className="hiddenWord">{hiddenWord}</p>
+                <div>
+                    <div className="keyboard">
+                        {alphabet
+                            .map((letter, index) =>
+                                <KeyboardButton
+                                    key={index}
+                                    letter={letter}
+                                    onClick={onGuess}
+                                    isCorrectGuess={word.includes(letter)}
+                                    shouldReset={shouldResetButtons}
+                                    onReset={() => setShouldResetButtons(false)}
+                                />
+                            )}
+                    </div>
+                    { fails.length > 0 && <SVGHangman numberOfIncorrectGuesses={fails.length}/>}
 
-            {gameStatus === "won" && (
-                <div>
-                    <Modal onPlayAgain={reset} message={"You win!"} word={word}/>
-                    <audio src={winSound} autoPlay/>
+                    {gameStatus === "won" && (
+                        <div>
+                            <Modal onPlayAgain={reset} message={"You win!"} word={word}/>
+                            <audio src={winSound} autoPlay/>
+                        </div>
+                    )}
+                    {gameStatus === "lost" && (
+                        <div>
+                            <Modal onPlayAgain={reset} message={"You lose!"} word={word}/>
+                            <audio src={loseSound} autoPlay/>
+                        </div>
+                    )}
                 </div>
-            )}
-            {gameStatus === "lost" && (
-                <div>
-                    <Modal onPlayAgain={reset} message={"You lose!"} word={word}/>
-                    <audio src={loseSound} autoPlay/>
-                </div>
-            )}
+            </div>
         </div>
     );
 };

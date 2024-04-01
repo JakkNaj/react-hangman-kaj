@@ -1,0 +1,70 @@
+@keyframes jiggle {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, 2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(1px, 1px) rotate(2deg); }
+    40% { transform: translate(-2px, -1px) rotate(-2deg); }
+    50% { transform: translate(1px, 1px) rotate(-6deg); }
+    60% { transform: translate(4px, -4px) rotate(6deg); }
+    70% { transform: translate(1px, 1px) rotate(0deg); }
+    80% { transform: translate(3px, -2px) rotate(-1deg); }
+    90% { transform: translate(-1px, 1px) rotate(1deg); }
+    100% { transform: translate(1px, 1px) rotate(-1deg); }
+}
+
+.keyboard-button {
+    border: none;
+    border-radius: 16px;
+    color: #60C1B6;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    max-width: 65px;
+    padding: 18px 24px;
+    height: 4rem;
+    margin-bottom: 10px;
+    margin-right: 28px;
+}
+
+.front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    background: white;
+    border-radius: 12px;
+    color: #007bff;
+    height: 4rem;
+    min-width: 65px;
+    margin: 0;
+    padding: 0;
+    transform: translateY(-4px);
+    will-change: transform;
+    transition: transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.keyboard-button:hover .front {
+    transform: translateY(-6px);
+    transition:
+            transform
+            250ms
+            cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.keyboard-button:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+}
+
+.correct-button {
+    background: rgba(0, 128, 0, 0.8);
+    cursor: not-allowed;
+}
+
+.disabled-button {
+    background: rgba(194, 9, 9, 0.8);
+    cursor: not-allowed;
+}
