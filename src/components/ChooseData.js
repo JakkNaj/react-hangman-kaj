@@ -6,10 +6,11 @@ import {GlobalContext} from "./GlobalContext";
 const ChooseData = () => {
     const [toggleState, setToggleState] = useState(true);
 
-    const { dataLoaded, setDataLoaded } = useContext(GlobalContext);
+    const { dataLoaded, setDataLoaded, useCustomData, setUseCustomData } = useContext(GlobalContext);
 
     const handleToggleChange = () => {
         setToggleState(!toggleState);
+        setUseCustomData(!useCustomData);
         setDataLoaded(!dataLoaded);
     };
 

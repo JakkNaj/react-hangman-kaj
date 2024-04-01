@@ -1,0 +1,35 @@
+.svgs-container {
+    position: relative;
+}
+
+.svg-part {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@keyframes swing-body {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-6deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes swing-rope {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(4deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-4deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.swing-body {
+    transform-origin: 0 20%;
+    animation: swing-body 3s cubic-bezier(0.25, 0.25, 0.25, 0.5) forwards infinite;
+}
+
+.swing-rope {
+    transform-origin: top center;
+    animation: swing-rope 3s cubic-bezier(0.25, 0.25, 0.25, 0.5) forwards infinite;
+}

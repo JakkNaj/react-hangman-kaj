@@ -7,7 +7,7 @@ import {useGameStatus} from "./GameStatusContext";
 
 import winSound from '../assets/win-sound.mp3';
 import loseSound from '../assets/lose-sound.mp3';
-import SVGHangman from "./svgs/SVGhangman";
+import SVGHangman from "./SVGhangman";
 import {GlobalContext} from "./GlobalContext";
 import {fetchRandomWord} from "../modules/wordFetcher";
 
@@ -22,10 +22,10 @@ const Hangman = () => {
     const [fails, setFails] = useState([]);
     const [shouldResetButtons, setShouldResetButtons] = useState(false);
     const { gameStatus, setGameStatus } = useGameStatus();
-    const { data } = useContext(GlobalContext);
+    const { data, useCustomData } = useContext(GlobalContext);
 
     const getRandomWord = () => {
-        if (data.length > 0){
+        if (useCustomData && data.length > 0){
             const randomIndex = Math.floor(Math.random() * data.length);
             const randomWord = data[randomIndex];
             setWord(randomWord.toUpperCase());
@@ -88,8 +88,8 @@ const Hangman = () => {
     }
 
     useEffect(() => {
-        reset()
-    }, []);
+        reset();
+    }, [useCustomData, data]);
 
     return (
         <div>

@@ -7,9 +7,10 @@ export const GlobalProvider = ({ children }) => {
     const [username, setUsername] = useState('');
     const [data, setData] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(true);
+    const [useCustomData, setUseCustomData] = useState(false);
 
     return (
-        <GlobalContext.Provider value={{ loggedIn, setLoggedIn, username, setUsername, data, setData, dataLoaded, setDataLoaded }}>
+        <GlobalContext.Provider value={{ loggedIn, setLoggedIn, username, setUsername, data, setData, dataLoaded, setDataLoaded, useCustomData, setUseCustomData }}>
             {children}
         </GlobalContext.Provider>
     );
