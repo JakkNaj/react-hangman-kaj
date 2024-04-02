@@ -15,7 +15,7 @@ const SVGHangman = ({ numberOfIncorrectGuesses }) => {
 
     useEffect(() => {
         setCurrentPaths(svgPaths.slice(svgPaths.length - numberOfIncorrectGuesses, svgPaths.length));
-    }, [numberOfIncorrectGuesses, svgPaths]);
+    }, [numberOfIncorrectGuesses]);
 
     const determineSwingEffect = (index) => {
         if (currentPaths.length === svgPaths.length) {
@@ -28,14 +28,13 @@ const SVGHangman = ({ numberOfIncorrectGuesses }) => {
     }
 
     return (
-        <div className="svgs-container">
             <svg className="svg-part" version="1.1" width="512" height="512" id="svg1" xmlns="http://www.w3.org/2000/svg">
                 <defs id="defs1" />
                 {currentPaths.map((path, index) => (
                     <path key={index} id={`path${index}`} d={path} className={determineSwingEffect(index)} />
                 ))}
             </svg>
-        </div>
+
     )
 }
 

@@ -9,5 +9,34 @@
 }
 
 
+.content-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
 
+.bottom-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
 
+@media (max-width: 800px) {
+    .bottom-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.svgs-container {
+    width: 512px;
+    height: 512px;
+    border: 1px dotted #007bff;
+}
+
+.hiddenWord {
+    font-size: 36px;
+    font-weight: bolder;
+    margin-bottom: 0;
+    letter-spacing: 20px;
+}

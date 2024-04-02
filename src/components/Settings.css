@@ -1,0 +1,13 @@
+.settings-section {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.settings-section button {
+    padding: 0 15px;
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    font-weight: bolder;
+}

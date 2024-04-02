@@ -1,0 +1,46 @@
+.top-players-section {
+    padding: 20px;
+}
+
+.top-players-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 1px;
+}
+
+.top-players-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-sizing: border-box;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+
+}
+
+.top-players-list li:nth-child(1) {
+    order: 2;
+    width: 33%;
+    height: 200px;
+    background-color: gold;
+}
+
+.top-players-list li:nth-child(2) {
+    order: 1;
+    width: 33%;
+    height: 150px;
+    background-color: silver;
+}
+
+.top-players-list li:nth-child(3) {
+    order: 3;
+    width: 33%;
+    height: 100px;
+    background-color: sandybrown;
+}

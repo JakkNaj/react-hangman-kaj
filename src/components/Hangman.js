@@ -12,6 +12,7 @@ import {GlobalContext} from "./GlobalContext";
 import {fetchRandomWord} from "../modules/wordFetcher";
 
 import './Hangman.css';
+import SettingsSection from "./Settings";
 
 const Hangman = () => {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -23,7 +24,7 @@ const Hangman = () => {
     const [fails, setFails] = useState([]);
     const [shouldResetButtons, setShouldResetButtons] = useState(false);
     const { gameStatus, setGameStatus } = useGameStatus();
-    const { data, useCustomData } = useContext(GlobalContext);
+    const { data, useCustomData, playSound } = useContext(GlobalContext);
 
     const getRandomWord = () => {
         if (useCustomData && data.length > 0){
@@ -92,13 +93,25 @@ const Hangman = () => {
         reset();
     }, [useCustomData, data]);
 
+
+    useEffect(() => {
+        if (playSound) {
+            if (gameStatus === "won") {
+                const audio = new Audio(winSound);
+                audio.play();
+            } else if (gameStatus === "lost") {
+                const audio = new Audio(loseSound);
+                audio.play();
+            }
+        }
+    }, [gameStatus]);
+
     return (
         <div>
+            <SettingsSection />
             <ScoreTracker />
-            <TopPlayers />
-            <div>
+            <div className="content-area">
                 <p className="hiddenWord">{hiddenWord}</p>
-                <div>
                     <div className="keyboard">
                         {alphabet
                             .map((letter, index) =>
@@ -112,24 +125,22 @@ const Hangman = () => {
                                 />
                             )}
                     </div>
-                    { fails.length > 0 && <SVGHangman numberOfIncorrectGuesses={fails.length}/>}
 
                     {gameStatus === "won" && (
-                        <div>
                             <Modal onPlayAgain={reset} message={"You win!"} word={word}/>
-                            <audio src={winSound} autoPlay/>
-                        </div>
                     )}
                     {gameStatus === "lost" && (
-                        <div>
                             <Modal onPlayAgain={reset} message={"You lose!"} word={word}/>
-                            <audio src={loseSound} autoPlay/>
-                        </div>
                     )}
+                <div className="bottom-content">
+                    <div className="svgs-container">
+                        {fails.length > 0 && <SVGHangman numberOfIncorrectGuesses={fails.length}/>}
+                    </div>
+                    <TopPlayers/>
                 </div>
             </div>
         </div>
-    );
-};
+        );
+    };
 
 export default Hangman;
