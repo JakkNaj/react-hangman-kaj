@@ -25,7 +25,7 @@
     animation: swing-rope 3s cubic-bezier(0.25, 0.25, 0.25, 0.5) forwards infinite;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 512px) {
     .svgs-container {
         transform: scale(0.4);
         width: 50vw;
