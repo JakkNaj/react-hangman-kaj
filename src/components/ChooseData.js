@@ -15,7 +15,7 @@ const ChooseData = () => {
     };
 
     return (
-        <div className="choose-data-container">
+        <section className="choose-data-container">
             <h3>Choose Data</h3>
             <div className="toggle-switch-container">
                 <input
@@ -29,11 +29,11 @@ const ChooseData = () => {
                     <span className="toggle-switch-inner"></span>
                 </label>
                 <span className="toggle-switch-label">
-                    {toggleState ? 'Dictionary' : 'Own Data'}
-                </span>
+                {toggleState ? 'Online Dictionary' : 'Own Data'}
+            </span>
             </div>
             {!toggleState && (<FileImporter />)}
-        </div>
+        </section>
     );
 };
 

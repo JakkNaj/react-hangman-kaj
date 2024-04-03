@@ -3,7 +3,7 @@ import './LoginPage.css';
 import ChooseData from "./ChooseData";
 import {GlobalContext} from "./GlobalContext";
 const LoginPage = () => {
-    const { setUsername, setLoggedIn, dataLoaded, useCustomData } = useContext(GlobalContext);
+    const { setUsername, setLoggedIn, dataLoaded, useCustomData, hasInternetCon } = useContext(GlobalContext);
     const [name, setName] = useState('');
     const [shouldShake, setShouldShake] = useState(false);
     const [showErrorMessage, setShowErrorMessage] = useState(false);
@@ -21,17 +21,23 @@ const LoginPage = () => {
                 setDataLoadError(true);
                 return;
             }
+            else if (!useCustomData && !hasInternetCon){
+                return;
+            }
             setUsername(name);
             setLoggedIn(true);
         }
     };
 
     return (
-        <div className="login-container">
-            <div className="loginBox">
+        <main className="login-container">
+            <section className="loginBox">
                 <h2>Welcome!</h2>
                 {showErrorMessage ? <p className="error">Cannot continue without a name!</p> : <p>Please enter your name!</p>}
                 {dataLoadError && <p className="error">You have to successfully load in data first!</p>}
+                {!hasInternetCon && !useCustomData && (
+                    <p className="error">Cannot use English dictionary when you're offline!</p>
+                )}
                 <h3>Choose Name</h3>
                 <input
                     type="text"
@@ -45,8 +51,8 @@ const LoginPage = () => {
                 <ChooseData />
 
                 <button className="button" onClick={handleLogin} id="playBtn">Let's play!</button>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 };
 

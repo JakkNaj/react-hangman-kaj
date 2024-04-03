@@ -6,7 +6,6 @@ import './TopPlayers.css';
 
 const TopPlayers = () => {
     const [players, setPlayers] = useState([]);
-    const { gameStatus } = useGameStatus();
 
     useEffect(() => {
         const fetchPlayers = async () => {
@@ -19,7 +18,7 @@ const TopPlayers = () => {
         };
 
         fetchPlayers();
-    }, [gameStatus]);
+    }, []);
 
 
     return (

@@ -1,31 +1,45 @@
 import './App.css';
-import Hangman from "./components/Hangman";
-import LoginPage from "./components/LoginPage";
-import {GameStatusProvider} from "./components/GameStatusContext";
-import React, {useContext, useEffect, useState} from "react";
-import {GlobalContext} from "./components/GlobalContext";
+import React from "react";
+import {Link, Route, Routes, useNavigate} from "react-router-dom";
+import Game from "./Game";
+import TopPlayers from "./components/TopPlayers";
 
 const App = () => {
-  const { loggedIn } = useContext(GlobalContext);
-  const [render, setRender] = useState(false);
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        setRender(!render);
-    }, [loggedIn]);
+    const goBack = () => {
+        navigate(-1);
+    };
 
-  return (
-      <div>
-        {!loggedIn && <LoginPage />}
+    const goForward = () => {
+        navigate(1);
+    };
 
-        {loggedIn &&
-            <GameStatusProvider>
-              <Hangman />
-            </GameStatusProvider>
-        }
-      </div>
-  );
+    return (
+        <div className="App">
+            <div>
+                <nav>
+                    <ul id="navigation">
+                        <li>
+                            <Link to="/">Game</Link>
+                        </li>
+                        <li>
+                            <Link to="/history">History</Link>
+                        </li>
+                        <li>
+                            <Link to="/topPlayers">Top Players</Link>
+                        </li>
+                    </ul>
+                </nav>
+                <button onClick={goBack}>Go Back</button>
+                <button onClick={goForward}>Go Forward</button>
+            </div>
+            <Routes>
+                <Route path="/" element={<Game />} />
+                <Route path="/topPlayers" element={<TopPlayers />} />
+            </Routes>
+        </div>
+    );
 }
 
-
 export default App;
-

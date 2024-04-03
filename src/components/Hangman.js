@@ -23,8 +23,9 @@ const Hangman = () => {
     const [corrects, setCorrects] = useState([]);
     const [fails, setFails] = useState([]);
     const [shouldResetButtons, setShouldResetButtons] = useState(false);
+    const [error, setError] = useState(null);
     const { gameStatus, setGameStatus } = useGameStatus();
-    const { data, useCustomData, playSound } = useContext(GlobalContext);
+    const { data, useCustomData, playSound, hasInternetCon } = useContext(GlobalContext);
 
     const getRandomWord = () => {
         if (useCustomData && data.length > 0){
@@ -33,6 +34,10 @@ const Hangman = () => {
             setWord(randomWord.toUpperCase());
         } else {
             const fetchData = async () => {
+                if (!hasInternetCon)
+                    setError("Fetching words from cache. If those run out, try to repair your internet connectivity or log out and use custom data.");
+                else
+                    setError(null);
                 const fetchedWord = await fetchRandomWord();
                 if (fetchedWord) {
                     setWord(fetchedWord);
@@ -107,17 +112,18 @@ const Hangman = () => {
     }, [gameStatus]);
 
     return (
-        <div>
+        <main>
             <SettingsSection/>
             <ScoreTracker/>
-            <div className="content-area">
-                <div className="left-content">
+            {error && <p className="error">{error}</p>}
+            <section className="content-area">
+                <article className="left-content">
                     <p className="hiddenWord">{hiddenWord}</p>
                     <div className="svgs-container">
                         {fails.length > 0 && <SVGHangman numberOfIncorrectGuesses={fails.length}/>}
                     </div>
-                </div>
-                <div className="right-content">
+                </article>
+                <aside className="right-content">
                     <div className="keyboard">
                         {alphabet
                             .map((letter, index) =>
@@ -132,16 +138,16 @@ const Hangman = () => {
                             )}
                     </div>
                     <TopPlayers/>
-                </div>
+                </aside>
 
                 {gameStatus === "won" && (
                     <Modal onPlayAgain={reset} message={"You win!"} word={word}/>
-                    )}
-                    {gameStatus === "lost" && (
-                        <Modal onPlayAgain={reset} message={"You lose!"} word={word}/>
-                    )}
-            </div>
-        </div>
+                )}
+                {gameStatus === "lost" && (
+                    <Modal onPlayAgain={reset} message={"You lose!"} word={word}/>
+                )}
+            </section>
+        </main>
     );
 };
 

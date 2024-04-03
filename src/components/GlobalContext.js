@@ -9,6 +9,8 @@ export const GlobalProvider = ({ children }) => {
     const [dataLoaded, setDataLoaded] = useState(true);
     const [useCustomData, setUseCustomData] = useState(false);
     const [playSound, setPlaySound] = useState(false);
+    const [hasInternetCon, setHasInternetCon] = useState(navigator.onLine);
+
 
     const resetGame = () => {
         setLoggedIn(false);
@@ -21,7 +23,8 @@ export const GlobalProvider = ({ children }) => {
 
     return (
         <GlobalContext.Provider value={{ loggedIn, setLoggedIn, username, setUsername, data, setData, dataLoaded,
-            setDataLoaded, useCustomData, setUseCustomData, playSound, setPlaySound, resetGame }}>
+            setDataLoaded, useCustomData, setUseCustomData, playSound, setPlaySound, resetGame, hasInternetCon,
+            setHasInternetCon }}>
             {children}
         </GlobalContext.Provider>
     );
