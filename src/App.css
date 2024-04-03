@@ -5,7 +5,6 @@ body, html {
   font-family: 'Inter', 'Montserrat', sans-serif;
   text-align: center;
   margin: auto;
-  padding: 10px;
   background: #f0f0f0;
   width: 100%;
   overflow-x: hidden;
@@ -15,4 +14,42 @@ body, html {
     body, html {
         padding: 0;
     }
+}
+
+.app-nav {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+}
+
+.app-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.app-nav li {
+    display: inline;
+    padding: 10px 35px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.app-nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.app-nav li.home, .app-nav li.history, .app-nav li.topPlayers{
+    background-color: #007bff;
+    color: white !important;
+}
+
+.app-nav li.home a,
+.app-nav li.history a,
+.app-nav li.topPlayers a {
+    color: white;
 }

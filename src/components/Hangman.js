@@ -7,6 +7,7 @@ import {useGameStatus} from "./GameStatusContext";
 
 import winSound from '../assets/win-sound.mp3';
 import loseSound from '../assets/lose-sound.mp3';
+import cyberpunkGameMusic from '../assets/cyberpunk-game-music.mp3';
 import SVGHangman from "./SVGhangman";
 import {GlobalContext} from "./GlobalContext";
 import {fetchRandomWord} from "../modules/wordFetcher";
@@ -147,6 +148,7 @@ const Hangman = () => {
                     <Modal onPlayAgain={reset} message={"You lose!"} word={word}/>
                 )}
             </section>
+            {playSound && <audio src={cyberpunkGameMusic} autoPlay></audio>}
         </main>
     );
 };
