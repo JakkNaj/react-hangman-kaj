@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b9134c9b602344771d6d8319bc946704",
+    "revision": "8a527e2253daa2af6f10728f3cb7a516",
     "url": "/JakkNaj/react-hangman-kaj/index.html"
   },
   {
-    "revision": "772866bb0d81152b8ffb",
+    "revision": "c15d242ad36755327f8a",
     "url": "/JakkNaj/react-hangman-kaj/static/css/main.bfd10ace.chunk.css"
   },
   {
-    "revision": "5c269f28dcb94ac73b93",
-    "url": "/JakkNaj/react-hangman-kaj/static/js/2.91802fdb.chunk.js"
+    "revision": "c5930321f3570e246626",
+    "url": "/JakkNaj/react-hangman-kaj/static/js/2.10b2a221.chunk.js"
   },
   {
-    "revision": "60f6bf9e100e456690e9ab6c9a37bfc2",
-    "url": "/JakkNaj/react-hangman-kaj/static/js/2.91802fdb.chunk.js.LICENSE.txt"
+    "revision": "99562942502e41af72fc73d84afe4332",
+    "url": "/JakkNaj/react-hangman-kaj/static/js/2.10b2a221.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "772866bb0d81152b8ffb",
-    "url": "/JakkNaj/react-hangman-kaj/static/js/main.693eac7b.chunk.js"
+    "revision": "c15d242ad36755327f8a",
+    "url": "/JakkNaj/react-hangman-kaj/static/js/main.70223e9a.chunk.js"
   },
   {
     "revision": "a9569f664c6856998a6a",
