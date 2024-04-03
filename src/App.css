@@ -5,14 +5,14 @@ body, html {
   font-family: 'Inter', 'Montserrat', sans-serif;
   text-align: center;
   margin: auto;
+  padding: 10px;
+  background: #f0f0f0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-@media screen and (max-width: 1140px) {
-  body, html {
-    width: 100%;
-  }
-}
-
-.hiddenWord {
-  letter-spacing: 10px;
+@media (max-width: 600px) {
+    body, html {
+        padding: 0;
+    }
 }

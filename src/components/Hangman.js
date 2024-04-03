@@ -108,10 +108,16 @@ const Hangman = () => {
 
     return (
         <div>
-            <SettingsSection />
-            <ScoreTracker />
+            <SettingsSection/>
+            <ScoreTracker/>
             <div className="content-area">
-                <p className="hiddenWord">{hiddenWord}</p>
+                <div className="left-content">
+                    <p className="hiddenWord">{hiddenWord}</p>
+                    <div className="svgs-container">
+                        {fails.length > 0 && <SVGHangman numberOfIncorrectGuesses={fails.length}/>}
+                    </div>
+                </div>
+                <div className="right-content">
                     <div className="keyboard">
                         {alphabet
                             .map((letter, index) =>
@@ -125,22 +131,18 @@ const Hangman = () => {
                                 />
                             )}
                     </div>
-
-                    {gameStatus === "won" && (
-                            <Modal onPlayAgain={reset} message={"You win!"} word={word}/>
-                    )}
-                    {gameStatus === "lost" && (
-                            <Modal onPlayAgain={reset} message={"You lose!"} word={word}/>
-                    )}
-                <div className="bottom-content">
-                    <div className="svgs-container">
-                        {fails.length > 0 && <SVGHangman numberOfIncorrectGuesses={fails.length}/>}
-                    </div>
                     <TopPlayers/>
                 </div>
+
+                {gameStatus === "won" && (
+                    <Modal onPlayAgain={reset} message={"You win!"} word={word}/>
+                    )}
+                    {gameStatus === "lost" && (
+                        <Modal onPlayAgain={reset} message={"You lose!"} word={word}/>
+                    )}
             </div>
         </div>
-        );
-    };
+    );
+};
 
 export default Hangman;

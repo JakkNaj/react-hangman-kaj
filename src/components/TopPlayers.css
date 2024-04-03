@@ -1,5 +1,6 @@
 .top-players-section {
     padding: 20px;
+    width: 60%;
 }
 
 .top-players-list {
@@ -43,4 +44,10 @@
     width: 33%;
     height: 100px;
     background-color: sandybrown;
+}
+
+@media (max-width: 600px) {
+    .top-players-section {
+        display: none;
+    }
 }

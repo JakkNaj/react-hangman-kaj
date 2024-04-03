@@ -68,3 +68,13 @@
     background: rgba(194, 9, 9, 0.8);
     cursor: not-allowed;
 }
+
+@media (max-width: 600px) {
+
+    .keyboard-button {
+        font-size: 1.2rem;
+        margin-right: 20px;
+        padding: 16px 10px;
+    }
+
+}

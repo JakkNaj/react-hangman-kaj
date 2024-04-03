@@ -3,7 +3,7 @@ import './LoginPage.css';
 import ChooseData from "./ChooseData";
 import {GlobalContext} from "./GlobalContext";
 const LoginPage = () => {
-    const { setUsername, setLoggedIn, dataLoaded } = useContext(GlobalContext);
+    const { setUsername, setLoggedIn, dataLoaded, useCustomData } = useContext(GlobalContext);
     const [name, setName] = useState('');
     const [shouldShake, setShouldShake] = useState(false);
     const [showErrorMessage, setShowErrorMessage] = useState(false);
@@ -17,7 +17,7 @@ const LoginPage = () => {
                 setShouldShake(false);
             }, 500);
         } else {
-            if (!dataLoaded){
+            if (useCustomData && !dataLoaded){
                 setDataLoadError(true);
                 return;
             }
