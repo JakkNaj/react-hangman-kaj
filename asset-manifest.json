@@ -1,24 +1,16 @@
 {
   "files": {
-    "main.css": "/JakkNaj/react-hangman-kaj/static/css/main.bfd10ace.chunk.css",
-    "main.js": "/JakkNaj/react-hangman-kaj/static/js/main.ba5956a2.chunk.js",
-    "main.js.map": "/JakkNaj/react-hangman-kaj/static/js/main.ba5956a2.chunk.js.map",
-    "runtime-main.js": "/JakkNaj/react-hangman-kaj/static/js/runtime-main.0f4f323c.js",
-    "runtime-main.js.map": "/JakkNaj/react-hangman-kaj/static/js/runtime-main.0f4f323c.js.map",
-    "static/js/2.10b2a221.chunk.js": "/JakkNaj/react-hangman-kaj/static/js/2.10b2a221.chunk.js",
-    "static/js/2.10b2a221.chunk.js.map": "/JakkNaj/react-hangman-kaj/static/js/2.10b2a221.chunk.js.map",
+    "main.css": "/JakkNaj/react-hangman-kaj/static/css/main.6114dfea.css",
+    "main.js": "/JakkNaj/react-hangman-kaj/static/js/main.ce6c8f02.js",
+    "static/media/cyberpunk-game-music.mp3": "/JakkNaj/react-hangman-kaj/static/media/cyberpunk-game-music.a600b6304b5be4e07811.mp3",
+    "static/media/win-sound.mp3": "/JakkNaj/react-hangman-kaj/static/media/win-sound.e97472da33ea6e2384ed.mp3",
+    "static/media/lose-sound.mp3": "/JakkNaj/react-hangman-kaj/static/media/lose-sound.864062a6fe50ac85c8a0.mp3",
     "index.html": "/JakkNaj/react-hangman-kaj/index.html",
-    "precache-manifest.2819bcd00155045b23829b0dbd9bbd8f.js": "/JakkNaj/react-hangman-kaj/precache-manifest.2819bcd00155045b23829b0dbd9bbd8f.js",
-    "service-worker.js": "/JakkNaj/react-hangman-kaj/service-worker.js",
-    "static/css/main.bfd10ace.chunk.css.map": "/JakkNaj/react-hangman-kaj/static/css/main.bfd10ace.chunk.css.map",
-    "static/js/2.10b2a221.chunk.js.LICENSE.txt": "/JakkNaj/react-hangman-kaj/static/js/2.10b2a221.chunk.js.LICENSE.txt",
-    "static/media/lose-sound.mp3": "/JakkNaj/react-hangman-kaj/static/media/lose-sound.00670d0d.mp3",
-    "static/media/win-sound.mp3": "/JakkNaj/react-hangman-kaj/static/media/win-sound.5ea1467b.mp3"
+    "main.6114dfea.css.map": "/JakkNaj/react-hangman-kaj/static/css/main.6114dfea.css.map",
+    "main.ce6c8f02.js.map": "/JakkNaj/react-hangman-kaj/static/js/main.ce6c8f02.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.0f4f323c.js",
-    "static/js/2.10b2a221.chunk.js",
-    "static/css/main.bfd10ace.chunk.css",
-    "static/js/main.ba5956a2.chunk.js"
+    "static/css/main.6114dfea.css",
+    "static/js/main.ce6c8f02.js"
   ]
 }
