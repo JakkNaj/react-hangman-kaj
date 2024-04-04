@@ -1,38 +1,32 @@
 import './App.css';
 import React, {useContext} from "react";
-import {Link, Route, Routes, useNavigate} from "react-router-dom";
+import {NavLink, Route, Routes} from "react-router-dom";
 import Game from "./Game";
 import TopPlayers from "./components/TopPlayers";
-import { useLocation } from 'react-router-dom';
 import {GlobalContext} from "./components/GlobalContext";
 import Settings from "./components/Settings";
 import History from "./History";
 
 const App = () => {
-    const location = useLocation();
     const { loggedIn } = useContext(GlobalContext);
 
     return (
         <div className="app-nav">
-            <div>
-                <nav>
-                    <h3>Hangman game</h3>
-                    <div>
-                        <ul id="navigation">
-                            <li className={location.pathname === "/" ? "home" : ""}>
-                                <Link to="/">Game</Link>
-                            </li>
-                            <li className={location.pathname === "/history" ? "history" : ""}>
-                                <Link to="/history">History</Link>
-                            </li>
-                            <li className={location.pathname === "/topPlayers" ? "topPlayers" : ""}>
-                                <Link to="/topPlayers">Top Players</Link>
-                            </li>
-                        </ul>
-                    </div>
-                    {loggedIn && (<Settings/>)}
-                </nav>
-            </div>
+            <nav>
+                <h3>Hangman game</h3>
+                <ul id="navigation">
+                    <li>
+                        <NavLink to="/" exact activeClassName="active-link">Game</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/topPlayers" activeClassName="active-link">Top Players</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/history" activeClassName="active-link">History</NavLink>
+                    </li>
+                </ul>
+                {loggedIn && (<Settings/>)}
+            </nav>
             <Routes>
                 <Route path="/" element={<Game/>}/>
                 <Route path="/history" element={<History />}/>
