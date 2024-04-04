@@ -1,14 +1,16 @@
-import './App.css';
-import React, {useContext} from "react";
-import {NavLink, Route, Routes} from "react-router-dom";
+import {useContext} from "react";
+import {NavLink, Route, Routes, useLocation} from "react-router-dom";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
 import Game from "./Game";
 import TopPlayers from "./components/TopPlayers";
 import {GlobalContext} from "./components/GlobalContext";
 import Settings from "./components/Settings";
 import History from "./History";
+import './App.css';
 
 const App = () => {
     const { loggedIn } = useContext(GlobalContext);
+    const location = useLocation();
 
     return (
         <div className="app-nav">
@@ -27,11 +29,19 @@ const App = () => {
                 </ul>
                 {loggedIn && (<Settings/>)}
             </nav>
-            <Routes>
-                <Route path="/" element={<Game/>}/>
-                <Route path="/history" element={<History />}/>
-                <Route path="/topPlayers" element={<TopPlayers/>}/>
-            </Routes>
+            <TransitionGroup>
+                <CSSTransition
+                    key={location.key}
+                    classNames="fade"
+                    timeout={300}
+                >
+                    <Routes location={location}>
+                        <Route path="/" element={<Game/>}/>
+                        <Route path="/history" element={<History />}/>
+                        <Route path="/topPlayers" element={<TopPlayers/>}/>
+                    </Routes>
+                </CSSTransition>
+            </TransitionGroup>
         </div>
     );
 }
