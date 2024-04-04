@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from 'react';
 import KeyboardButton from "./KeyboardButton";
 import Modal from "./modal/Modal";
 import ScoreTracker from "./ScoreTracker";
-import TopPlayers from "./TopPlayers";
 import {useGameStatus} from "./GameStatusContext";
 
 import winSound from '../assets/win-sound.mp3';
@@ -13,7 +12,6 @@ import {GlobalContext} from "./GlobalContext";
 import {fetchRandomWord} from "../modules/wordFetcher";
 
 import './Hangman.css';
-import SettingsSection from "./Settings";
 
 const Hangman = () => {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -114,17 +112,21 @@ const Hangman = () => {
 
     return (
         <main>
-            <SettingsSection/>
-            <ScoreTracker/>
             {error && <p className="error">{error}</p>}
             <section className="content-area">
-                <article className="left-content">
-                    <p className="hiddenWord">{hiddenWord}</p>
+                <ScoreTracker/>
+                <section className="word-section">
+                    <h4>Guess the word</h4>
+                    <div className="hiddenWord">
+                        {hiddenWord.split('').map((char, index) => (
+                            <span key={index} className="hidden-char" data-content={char}>{char}</span>
+                        ))}
+                    </div>
+                </section>
+                <aside className="down-content">
                     <div className="svgs-container">
                         {fails.length > 0 && <SVGHangman numberOfIncorrectGuesses={fails.length}/>}
                     </div>
-                </article>
-                <aside className="right-content">
                     <div className="keyboard">
                         {alphabet
                             .map((letter, index) =>
@@ -138,7 +140,6 @@ const Hangman = () => {
                                 />
                             )}
                     </div>
-                    <TopPlayers/>
                 </aside>
 
                 {gameStatus === "won" && (

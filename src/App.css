@@ -1,13 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+    font-family: 'CabinetGrotesk';
+    src: url('./assets/CabinetGrotesk-Variable.ttf');
+}
+
+:root {
+    --primary-color: #4F4CEE;
+    --gray4: #BDBDBD;
+    --text-2ndLightest: #DDDDDE;
+    --text-default: #1B1B25;
+    --bg-purple-light: #F0EFFE;
+}
+
 
 body, html {
-  font-family: 'Inter', 'Montserrat', sans-serif;
+  font-family: 'CabinetGrotesk', 'Inter', sans-serif;
   text-align: center;
   margin: auto;
-  background: #f0f0f0;
-  width: 100%;
+  max-width: 1440px;
   overflow-x: hidden;
+    color: var(--text-default);
 }
 
 @media (max-width: 600px) {
@@ -16,10 +27,11 @@ body, html {
     }
 }
 
-.app-nav {
-    background-color: #f8f9fa;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+.app-nav nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 
 .app-nav ul {
@@ -30,10 +42,16 @@ body, html {
     justify-content: space-evenly;
 }
 
+.app-nav #navigation{
+    display: inline-flex;
+    padding: 16px 12px;
+    align-items: flex-start;
+    gap: 35px;
+}
+
 .app-nav li {
     display: inline;
-    padding: 10px 35px;
-    border: 1px solid #ddd;
+    padding: 10px;
     border-radius: 8px;
 }
 
@@ -43,13 +61,3 @@ body, html {
     font-size: 18px;
 }
 
-.app-nav li.home, .app-nav li.history, .app-nav li.topPlayers{
-    background-color: #007bff;
-    color: white !important;
-}
-
-.app-nav li.home a,
-.app-nav li.history a,
-.app-nav li.topPlayers a {
-    color: white;
-}

@@ -33,12 +33,12 @@ const ScoreTracker = () => {
     }, [gameStatus, username]);
 
     return (
-        <div className="score-tracker-grid">
-            <div className="top-row">Player's name:</div>
-            <div className="top-row">Score:</div>
-            <div>{username}</div>
-            <div>{score}</div>
-        </div>
+        <section className="score-tracker-grid">
+            <h2 className="top-row">Player's name:</h2>
+            <h2 className="top-row">Score:</h2>
+            <p>{username}</p>
+            <p>{score}</p>
+        </section>
     );
 };
 

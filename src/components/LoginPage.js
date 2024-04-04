@@ -29,26 +29,37 @@ const LoginPage = () => {
         }
     };
 
+    const handleInputChange = (e) => {
+        setName(e.target.value);
+        if (e.target.value) {
+            setShowErrorMessage(false);
+        }
+    };
+
     return (
         <main className="login-container">
             <section className="loginBox">
                 <h2>Welcome!</h2>
-                {showErrorMessage ? <p className="error">Cannot continue without a name!</p> : <p>Please enter your name!</p>}
+                <div className="choose-name-container">
+                    <h4>Choose Name</h4>
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={handleInputChange}
+                        className={shouldShake ? 'input shake' : 'input'}
+                        placeholder="Enter your name"
+                        autoFocus
+                    />
+                </div>
+
+                <ChooseData/>
+
+                {showErrorMessage ? <p className="error">Cannot continue without a name!</p> :
+                    <p>Please enter your name!</p>}
                 {dataLoadError && <p className="error">You have to successfully load in data first!</p>}
                 {!hasInternetCon && !useCustomData && (
                     <p className="error">Cannot use English dictionary when you're offline!</p>
                 )}
-                <h3>Choose Name</h3>
-                <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className={shouldShake ? 'input shake' : 'input'}
-                    placeholder="Enter your name"
-                    autoFocus
-                />
-
-                <ChooseData />
 
                 <button className="button" onClick={handleLogin} id="playBtn">Let's play!</button>
             </section>

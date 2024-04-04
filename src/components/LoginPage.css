@@ -4,20 +4,21 @@
     align-items: center;
     justify-content: center;
     padding: 8px;
+    flex-shrink: 0;
+    border-radius: 3px;
 }
 
-.login-container h3 {
+.login-container h4 {
     margin-bottom: 10px;
 }
 
-.login-container h3, .login-container .toggle-switch-container {
+.login-container h4, .login-container .toggle-switch-container {
     align-self: start;
 }
 
 .loginBox {
     width: max(320px);
-    padding: 20px;
-    border: 2px solid #ccc;
+    border: 2px solid var(--primary-color);
     border-radius: 5px;
     background-color: #fff;
     text-align: center;
@@ -25,21 +26,41 @@
     flex-direction: column;
 }
 
-input {
+.loginBox > h2{
+    background-color: var(--primary-color);
+    color: white;
+    padding: 14px;
+    margin: 0;
+}
+
+.loginBox >.choose-name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px 20px;
+}
+
+.choose-name-container input {
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--text-default);
     border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #playBtn {
-    width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin: 0 40px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 12px;
 }
 
 @keyframes shake {
@@ -60,8 +81,13 @@ input {
     animation: shake 0.5s ease;
 }
 
-.error {
-    color:red;
-    font-weight: 400;
+.loginBox p {
+    padding: 10px;
+    margin: 10px 20px;
+    background-color: var(--bg-purple-light);
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--primary-color);
 }
+
 

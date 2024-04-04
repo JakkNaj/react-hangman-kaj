@@ -16,7 +16,7 @@ const ChooseData = () => {
 
     return (
         <section className="choose-data-container">
-            <h3>Choose Data</h3>
+            <h4>Choose Data</h4>
             <div className="toggle-switch-container">
                 <input
                     type="checkbox"

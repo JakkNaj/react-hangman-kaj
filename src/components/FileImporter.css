@@ -1,11 +1,9 @@
 .file-importer-container {
-    border: 2px dashed #ccc;
+    border: 2px dashed var(--primary-color);
     text-align: center;
     padding: 20px 10px;
     box-sizing: border-box;
     cursor: pointer;
-    margin-bottom: 20px;
-
 }
 
 .file-label {

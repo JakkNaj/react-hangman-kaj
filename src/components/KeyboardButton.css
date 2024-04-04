@@ -24,6 +24,7 @@
     height: 4rem;
     margin-bottom: 10px;
     margin-right: 28px;
+    transition: background-color 0.5s ease;
 }
 
 .front {
@@ -33,7 +34,7 @@
     text-transform: uppercase;
     background: white;
     border-radius: 12px;
-    color: #007bff;
+    color: var(--primary-color);
     height: 4rem;
     min-width: 65px;
     margin: 0;
