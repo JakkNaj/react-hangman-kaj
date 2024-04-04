@@ -32,16 +32,20 @@ const TopPlayers = () => {
                 <h2>Player's name:</h2>
                 <h2>Score:</h2>
             </section>
-            <ul className="other-players-list">
-                {otherPlayers.map((player, index) => (
-                    <li key={index}>
-                        <section className="others">
-                            <h2>{player.name}</h2>
-                            <h2>{player.score}</h2>
-                        </section>
-                    </li>
-                ))}
-            </ul>
+            {otherPlayers.length > 0 ? (
+                <ul className="other-players-list">
+                    {otherPlayers.map((player, index) => (
+                        <li key={index}>
+                            <section className="others">
+                                <h2>{player.name}</h2>
+                                <h2>{player.score}</h2>
+                            </section>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No other players registered locally.</p>
+            )}
         </div>
     );
 };

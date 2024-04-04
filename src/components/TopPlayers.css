@@ -82,7 +82,7 @@
     display: flex;
     justify-content: space-around;
     box-sizing: border-box;
-    border-radius: 16px;
+    border-radius: 0;
     border-bottom: 1px solid var(--gray4);
     align-items: center;
     padding: 0;
