@@ -1,15 +1,18 @@
 .top-players-section {
     padding: 20px;
-    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .top-players-list {
     list-style-type: none;
     padding: 0;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-end;
-    gap: 1px;
+    gap: 10px;
+    width: 60%;
 }
 
 .top-players-list li {
@@ -17,11 +20,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid #ddd;
     padding: 10px;
     box-sizing: border-box;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
+    font-weight: bolder;
+    font-size: 24px;
 
 }
 
@@ -50,4 +54,49 @@
     .top-players-section {
         display: none;
     }
+}
+
+.top-players-section .heading {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--primary-color);
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.top-players-section .heading h2 {
+    color: white;
+    margin: 0;
+    font-weight: bolder;
+}
+
+.other-players-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.other-players-list li {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    border-radius: 16px;
+    border-bottom: 1px solid var(--gray4);
+    align-items: center;
+    padding: 0;
+}
+
+.others {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.others h2 {
+    margin: 0;
 }
