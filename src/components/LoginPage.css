@@ -6,6 +6,7 @@
     padding: 8px;
     flex-shrink: 0;
     border-radius: 3px;
+    overflow: hidden;
 }
 
 .login-container h4 {

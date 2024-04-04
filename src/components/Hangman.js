@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 import KeyboardButton from "./KeyboardButton";
 import Modal from "./modal/Modal";
 import ScoreTracker from "./ScoreTracker";
@@ -26,7 +26,7 @@ const Hangman = () => {
     const { gameStatus, setGameStatus } = useGameStatus();
     const { data, useCustomData, playSound, hasInternetCon } = useContext(GlobalContext);
 
-    const getRandomWord = () => {
+    const getRandomWord = useCallback(() => {
         if (useCustomData && data.length > 0){
             const randomIndex = Math.floor(Math.random() * data.length);
             const randomWord = data[randomIndex];
@@ -44,7 +44,7 @@ const Hangman = () => {
             };
             fetchData();
         }
-    }
+    }, [useCustomData, data, hasInternetCon]);
 
     const onGuess = letter => {
         if (word.includes(letter)){
@@ -85,17 +85,17 @@ const Hangman = () => {
             .join(''));
     }, [word]);
 
-    const reset = () => {
+    const reset = useCallback(() => {
         getRandomWord()
         setShouldResetButtons(true);
         setGameStatus(null);
         setCorrects([]);
         setFails([]);
-    }
+    }, [getRandomWord, setGameStatus]);
 
     useEffect(() => {
         reset();
-    }, [useCustomData, data]);
+    }, [useCustomData, data, reset]);
 
 
     useEffect(() => {
@@ -108,7 +108,7 @@ const Hangman = () => {
                 audio.play();
             }
         }
-    }, [gameStatus]);
+    }, [gameStatus, playSound]);
 
     return (
         <main>

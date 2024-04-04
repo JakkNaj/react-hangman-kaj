@@ -4,7 +4,6 @@ import LoginPage from "./components/LoginPage";
 import {GameStatusProvider} from "./components/GameStatusContext";
 import React, {useContext, useEffect, useState} from "react";
 import {GlobalContext} from "./components/GlobalContext";
-import {Link} from "react-router-dom";
 
 const Game = () =>  {
     const { loggedIn, setHasInternetCon } = useContext(GlobalContext);
@@ -12,7 +11,7 @@ const Game = () =>  {
 
     useEffect(() => {
         setRender(!render);
-    }, [loggedIn]);
+    }, [loggedIn, render]);
 
     const updateInternetStatus = () => {
         setHasInternetCon(navigator.onLine);
@@ -26,7 +25,7 @@ const Game = () =>  {
             window.removeEventListener('online', updateInternetStatus);
             window.removeEventListener('offline', updateInternetStatus);
         };
-    }, []);
+    }, );
 
     return (
         <div>

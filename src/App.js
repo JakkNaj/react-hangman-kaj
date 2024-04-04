@@ -18,7 +18,7 @@ const App = () => {
                 <h3>Hangman game</h3>
                 <ul id="navigation">
                     <li>
-                        <NavLink to="/" exact activeClassName="active-link">Game</NavLink>
+                        <NavLink to="/react-hangman-kaj/" exact activeClassName="active-link">Game</NavLink>
                     </li>
                     <li>
                         <NavLink to="/topPlayers" activeClassName="active-link">Top Players</NavLink>
@@ -36,7 +36,7 @@ const App = () => {
                     timeout={300}
                 >
                     <Routes location={location}>
-                        <Route path="/" element={<Game/>}/>
+                        <Route path="/react-hangman-kaj/" element={<Game/>}/>
                         <Route path="/history" element={<History />}/>
                         <Route path="/topPlayers" element={<TopPlayers/>}/>
                     </Routes>

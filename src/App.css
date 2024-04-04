@@ -17,7 +17,7 @@ body, html {
   text-align: center;
   margin: auto;
   max-width: 1440px;
-  overflow: hidden;
+  overflow-x: hidden;
     color: var(--text-default);
 }
 
