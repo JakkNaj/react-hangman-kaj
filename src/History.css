@@ -1,0 +1,50 @@
+.history-container {
+    padding: 20px;
+}
+
+.history-container h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.articles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.article {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.article h2 {
+    margin-top: 0;
+    width: 40%;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: start;
+    margin-left: 4vw;
+}
+
+.article p {
+    margin-top: 0;
+    font-size: 18px;
+    width: 60%;
+    box-sizing: border-box;
+}
+
+.source-link {
+    padding: 10px;
+    text-align: end;
+}
+
+.source-link a {
+    color: var(--text-default);
+    text-decoration: none;
+}
+
+.article:first-child h2 {
+    visibility: hidden;
+}

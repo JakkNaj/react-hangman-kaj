@@ -6,6 +6,7 @@ import TopPlayers from "./components/TopPlayers";
 import { useLocation } from 'react-router-dom';
 import {GlobalContext} from "./components/GlobalContext";
 import Settings from "./components/Settings";
+import History from "./History";
 
 const App = () => {
     const location = useLocation();
@@ -34,6 +35,7 @@ const App = () => {
             </div>
             <Routes>
                 <Route path="/" element={<Game/>}/>
+                <Route path="/history" element={<History />}/>
                 <Route path="/topPlayers" element={<TopPlayers/>}/>
             </Routes>
         </div>
