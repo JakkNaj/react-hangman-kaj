@@ -90,4 +90,18 @@
     color: var(--primary-color);
 }
 
+.rope-image {
+    position: absolute;
+    top: -55%;
+    right: -10%;
+    width: 110%;
+    z-index: -1;
+    transition: all 0.02s ease-in-out;
+}
+
+@media (max-width: 1500px) { /* Replace 600px with the height of your image */
+    .rope-image {
+        display: none;
+    }
+}
 
