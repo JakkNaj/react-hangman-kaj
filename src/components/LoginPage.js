@@ -64,8 +64,6 @@ const LoginPage = () => {
 
                 <button className="button" onClick={handleLogin} id="playBtn">Let's play!</button>
             </section>
-            <img src={ropeImg} alt="Hangman" className="rope-image" />
-
         </main>
     );
 };

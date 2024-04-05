@@ -15,7 +15,8 @@ const SVGHangman = ({ numberOfIncorrectGuesses }) => {
 
     useEffect(() => {
         setCurrentPaths(svgPaths.slice(svgPaths.length - numberOfIncorrectGuesses, svgPaths.length));
-    }, [numberOfIncorrectGuesses]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [numberOfIncorrectGuesses, svgPaths]);
 
     const determineSwingEffect = (index) => {
         if (currentPaths.length === svgPaths.length) {
