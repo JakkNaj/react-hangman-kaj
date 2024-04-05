@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/JakkNaj/react-hangman-kaj/static/css/main.3c7942e4.css",
-    "main.js": "/JakkNaj/react-hangman-kaj/static/js/main.7f043d72.js",
+    "main.js": "/JakkNaj/react-hangman-kaj/static/js/main.ed123fed.js",
     "static/media/CabinetGrotesk-Variable.ttf": "/JakkNaj/react-hangman-kaj/static/media/CabinetGrotesk-Variable.5d8b44553adc33857c97.ttf",
     "index.html": "/JakkNaj/react-hangman-kaj/index.html",
     "main.3c7942e4.css.map": "/JakkNaj/react-hangman-kaj/static/css/main.3c7942e4.css.map",
-    "main.7f043d72.js.map": "/JakkNaj/react-hangman-kaj/static/js/main.7f043d72.js.map"
+    "main.ed123fed.js.map": "/JakkNaj/react-hangman-kaj/static/js/main.ed123fed.js.map"
   },
   "entrypoints": [
     "static/css/main.3c7942e4.css",
-    "static/js/main.7f043d72.js"
+    "static/js/main.ed123fed.js"
   ]
 }
