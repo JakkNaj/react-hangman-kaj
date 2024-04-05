@@ -12,9 +12,8 @@ export const loadScoreFromLocal = (name) => {
 
 export const getAllPlayers = () => {
     const currentScores = JSON.parse(localStorage.getItem('scores')) || {};
-    const players = Object.keys(currentScores).map(name => ({
+    return Object.keys(currentScores).map(name => ({
         name,
         score: currentScores[name]
     }));
-    return players;
 };
