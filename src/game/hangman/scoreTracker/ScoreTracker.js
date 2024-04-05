@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {saveScoreToLocal, loadScoreFromLocal} from '../modules/localStorageManipulator.js'
-import {useGameStatus} from "./GameStatusContext";
-import {GlobalContext} from "./GlobalContext";
+import {saveScoreToLocal, loadScoreFromLocal} from '../../../helpers/localStorageManipulator.js'
+import {useGameStatus} from "../../GameStatusContext";
+import {GlobalContext} from "../../../GlobalContext";
 
 import './ScoreTracker.css';
 

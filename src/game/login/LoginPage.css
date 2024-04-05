@@ -7,7 +7,7 @@
     flex-shrink: 0;
     border-radius: 3px;
     overflow: hidden;
-    background-image: url("../assets/frontRope.jpg");
+    background-image: url("../../assets/frontRope.jpg");
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;

@@ -1,8 +1,7 @@
 import React, {useContext, useState} from 'react';
 import './LoginPage.css';
-import ChooseData from "./ChooseData";
-import {GlobalContext} from "./GlobalContext";
-import ropeImg from "../assets/frontRope.jpg";
+import ChooseData from "./chooseData/ChooseData";
+import {GlobalContext} from "../../GlobalContext";
 const LoginPage = () => {
     const { setUsername, setLoggedIn, dataLoaded, useCustomData, hasInternetCon } = useContext(GlobalContext);
     const [name, setName] = useState('');

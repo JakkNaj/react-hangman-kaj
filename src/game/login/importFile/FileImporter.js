@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import './FileImporter.css';
-import {GlobalContext} from "./GlobalContext";
+import {GlobalContext} from "../../../GlobalContext";
 
 const FileImporter = () => {
 

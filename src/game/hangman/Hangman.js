@@ -1,15 +1,15 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react';
-import KeyboardButton from "./KeyboardButton";
+import KeyboardButton from "./keyboard/KeyboardButton";
 import Modal from "./modal/Modal";
-import ScoreTracker from "./ScoreTracker";
-import {useGameStatus} from "./GameStatusContext";
+import ScoreTracker from "./scoreTracker/ScoreTracker";
+import {useGameStatus} from "../GameStatusContext";
 
-import winSound from '../assets/win-sound.mp3';
-import loseSound from '../assets/lose-sound.mp3';
-import cyberpunkGameMusic from '../assets/cyberpunk-game-music.mp3';
-import SVGHangman from "./SVGhangman";
-import {GlobalContext} from "./GlobalContext";
-import {fetchRandomWord} from "../modules/wordFetcher";
+import winSound from '../../assets/win-sound.mp3';
+import loseSound from '../../assets/lose-sound.mp3';
+import cyberpunkGameMusic from '../../assets/cyberpunk-game-music.mp3';
+import SVGHangman from "./svgHangman/SVGhangman";
+import {GlobalContext} from "../../GlobalContext";
+import {fetchRandomWord} from "../../helpers/wordFetcher";
 
 import './Hangman.css';
 
@@ -95,7 +95,7 @@ const Hangman = () => {
 
     useEffect(() => {
         reset();
-    }, [useCustomData, data, reset]);
+    }, [reset]);
 
 
     useEffect(() => {

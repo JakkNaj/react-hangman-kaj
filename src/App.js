@@ -1,11 +1,11 @@
 import {useContext} from "react";
 import {NavLink, Route, Routes, useLocation} from "react-router-dom";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
-import Game from "./Game";
-import TopPlayers from "./components/TopPlayers";
-import {GlobalContext} from "./components/GlobalContext";
-import Settings from "./components/Settings";
-import History from "./History";
+import Game from "./game/Game";
+import TopPlayers from "./topPlayers/TopPlayers";
+import {GlobalContext} from "./GlobalContext";
+import Settings from "./navSettings/Settings";
+import History from "./history/History";
 import './App.css';
 
 const App = () => {
@@ -18,13 +18,13 @@ const App = () => {
                 <h3>Hangman game</h3>
                 <ul id="navigation">
                     <li>
-                        <NavLink to="/" exact activeClassName="active-link">Game</NavLink>
+                        <NavLink to="/">Game</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/topPlayers" activeClassName="active-link">Top Players</NavLink>
+                        <NavLink to="/topPlayers">Top Players</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/history" activeClassName="active-link">History</NavLink>
+                        <NavLink to="/history">History</NavLink>
                     </li>
                 </ul>
                 {loggedIn && (<Settings/>)}

@@ -1,21 +1,16 @@
-import './App.css';
-import Hangman from "./components/Hangman";
-import LoginPage from "./components/LoginPage";
-import {GameStatusProvider} from "./components/GameStatusContext";
-import React, {useContext, useEffect, useState} from "react";
-import {GlobalContext} from "./components/GlobalContext";
+import '../App.css';
+import Hangman from "./hangman/Hangman";
+import LoginPage from "./login/LoginPage";
+import {GameStatusProvider} from "./GameStatusContext";
+import React, {useCallback, useContext, useEffect} from "react";
+import {GlobalContext} from "../GlobalContext";
 
 const Game = () =>  {
     const { loggedIn, setHasInternetCon } = useContext(GlobalContext);
-    const [render, setRender] = useState(false);
 
-    useEffect(() => {
-        setRender(!render);
-    }, [loggedIn, render]);
-
-    const updateInternetStatus = () => {
+    const updateInternetStatus = useCallback (() => {
         setHasInternetCon(navigator.onLine);
-    };
+    }, [setHasInternetCon]);
 
     useEffect(() => {
         window.addEventListener('online', updateInternetStatus);
@@ -25,7 +20,8 @@ const Game = () =>  {
             window.removeEventListener('online', updateInternetStatus);
             window.removeEventListener('offline', updateInternetStatus);
         };
-    }, );
+    }, [updateInternetStatus]);
+
 
     return (
         <div>

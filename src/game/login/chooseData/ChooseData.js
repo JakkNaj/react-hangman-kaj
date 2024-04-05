@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
-import FileImporter from './FileImporter';
+import FileImporter from '../importFile/FileImporter';
 import './ChooseData.css';
-import {GlobalContext} from "./GlobalContext";
+import {GlobalContext} from "../../../GlobalContext";
 
 const ChooseData = () => {
     const [toggleState, setToggleState] = useState(true);

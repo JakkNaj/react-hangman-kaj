@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {getAllPlayers} from "../modules/localStorageManipulator";
+import {getAllPlayers} from "../helpers/localStorageManipulator";
 import './TopPlayers.css';
 
 const TopPlayers = () => {
