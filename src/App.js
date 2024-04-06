@@ -1,6 +1,5 @@
 import {useContext} from "react";
-import {NavLink, Route, Routes, useLocation} from "react-router-dom";
-import {CSSTransition, TransitionGroup} from "react-transition-group";
+import {Link, Route, Routes} from "react-router-dom";
 import Game from "./game/Game";
 import TopPlayers from "./topPlayers/TopPlayers";
 import {GlobalContext} from "./GlobalContext";
@@ -10,7 +9,7 @@ import './App.css';
 
 const App = () => {
     const { loggedIn } = useContext(GlobalContext);
-    const location = useLocation();
+
 
     return (
         <div className="app-nav">
@@ -18,30 +17,22 @@ const App = () => {
                 <h3>Hangman game</h3>
                 <ul id="navigation">
                     <li>
-                        <NavLink to="/">Game</NavLink>
+                        <Link to="/">Game</Link>
                     </li>
                     <li>
-                        <NavLink to="/topPlayers">Top Players</NavLink>
+                        <Link to="/topPlayers">Top Players</Link>
                     </li>
                     <li>
-                        <NavLink to="/history">History</NavLink>
+                        <Link to="/history">History</Link>
                     </li>
                 </ul>
                 {loggedIn && (<Settings/>)}
             </nav>
-            <TransitionGroup>
-                <CSSTransition
-                    key={location.key}
-                    classNames="fade"
-                    timeout={300}
-                >
-                    <Routes location={location}>
-                        <Route path="/" element={<Game/>}/>
-                        <Route path="/history" element={<History />}/>
-                        <Route path="/topPlayers" element={<TopPlayers/>}/>
-                    </Routes>
-                </CSSTransition>
-            </TransitionGroup>
+                <Routes>
+                    <Route path="/" element={<Game/>}/>
+                    <Route path="/history" element={<History />}/>
+                    <Route path="/topPlayers" element={<TopPlayers/>}/>
+                </Routes>
         </div>
     );
 }
