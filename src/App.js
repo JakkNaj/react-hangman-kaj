@@ -10,7 +10,6 @@ import './App.css';
 const App = () => {
     const { loggedIn } = useContext(GlobalContext);
 
-
     return (
         <div className="app-nav">
             <nav>

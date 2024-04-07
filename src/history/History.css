@@ -48,3 +48,35 @@
 .article:first-child h2 {
     visibility: hidden;
 }
+
+@media only screen and (max-width: 600px) {
+    .history-container {
+        padding: 10px;
+    }
+
+    .articles-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .article h2 {
+        font-size: 1.5em;
+        margin-left: 2vw;
+        width: 90%;
+    }
+
+    .article p {
+        font-size: 16px;
+        width: 90%;
+        text-align: start;
+    }
+
+    .article {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .source-link {
+        text-align: center;
+    }
+}

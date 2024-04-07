@@ -51,8 +51,8 @@
 }
 
 @media (max-width: 600px) {
-    .top-players-section {
-        display: none;
+    .top-players-list {
+        width: 100%;
     }
 }
 

@@ -91,7 +91,7 @@ const History = () => {
                     </p>
                 </article>
                 <footer className="source-link">
-                    <p>Source: <a href="https://www.gamesver.com/hangman-game-history-origins-past-present-and-future/">Source: www.gamesver.com</a></p>
+                    <p><a href="https://www.gamesver.com/hangman-game-history-origins-past-present-and-future/">source: www.gamesver.com</a></p>
                 </footer>
             </main>
         </section>

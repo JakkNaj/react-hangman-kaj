@@ -31,6 +31,7 @@ body, html {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
 }
 
@@ -75,6 +76,22 @@ body, html {
 .fade-enter-active {
     opacity: 1;
     transition: opacity 200ms ease-in;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .app-nav nav h3 {
+        order: 1;
+    }
+
+    .app-nav nav .settings-section {
+        order: 2;
+    }
+
+    .app-nav nav ul {
+        order: 3;
+    }
 }
 
 
