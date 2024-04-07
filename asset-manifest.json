@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/react-hangman-kaj/static/css/main.b3920591.css",
-    "main.js": "/react-hangman-kaj/static/js/main.2dc13e19.js",
+    "main.css": "/react-hangman-kaj/static/css/main.83f08e73.css",
+    "main.js": "/react-hangman-kaj/static/js/main.17caf442.js",
     "static/media/cyberpunk-game-music.mp3": "/react-hangman-kaj/static/media/cyberpunk-game-music.a600b6304b5be4e07811.mp3",
     "static/media/frontRope.jpg": "/react-hangman-kaj/static/media/frontRope.7b21572d25266881d7c9.jpg",
     "static/media/win-sound.mp3": "/react-hangman-kaj/static/media/win-sound.e97472da33ea6e2384ed.mp3",
     "static/media/lose-sound.mp3": "/react-hangman-kaj/static/media/lose-sound.864062a6fe50ac85c8a0.mp3",
     "static/media/CabinetGrotesk-Variable.ttf": "/react-hangman-kaj/static/media/CabinetGrotesk-Variable.5d8b44553adc33857c97.ttf",
     "index.html": "/react-hangman-kaj/index.html",
-    "main.b3920591.css.map": "/react-hangman-kaj/static/css/main.b3920591.css.map",
-    "main.2dc13e19.js.map": "/react-hangman-kaj/static/js/main.2dc13e19.js.map"
+    "main.83f08e73.css.map": "/react-hangman-kaj/static/css/main.83f08e73.css.map",
+    "main.17caf442.js.map": "/react-hangman-kaj/static/js/main.17caf442.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3920591.css",
-    "static/js/main.2dc13e19.js"
+    "static/css/main.83f08e73.css",
+    "static/js/main.17caf442.js"
   ]
 }
