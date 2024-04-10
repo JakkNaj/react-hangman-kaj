@@ -27,12 +27,6 @@
 
 @media (max-width: 512px) {
     .svgs-container {
-        transform: scale(0.4);
-        width: 50vw;
-        height: 50vh;
-        border: 1px dotted var(--primary-color);
         display: none;
     }
-    position: relative;
-    z-index: -1;
 }
