@@ -13,6 +13,12 @@ import {fetchRandomWord} from "../../helpers/wordFetcher";
 
 import './Hangman.css';
 
+/*
+* Hangman component is the main game component where the game logic is implemented. It fetches a random word from the
+* online english dictionary or from imported data based on the user's choice during login.
+* This component is rendering lesser components like the keyboard, the hidden word, the score tracker, the hangman SVG.
+ */
+
 const Hangman = () => {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     const maxFails = 6;
@@ -40,6 +46,11 @@ const Hangman = () => {
                 const fetchedWord = await fetchRandomWord();
                 if (fetchedWord) {
                     setWord(fetchedWord);
+                    setHiddenWord(fetchedWord
+                            .split('')
+                            .map(() => '_')
+                            .join('')
+                    );
                 }
             };
             fetchData();
@@ -78,12 +89,12 @@ const Hangman = () => {
         setHiddenWord(w);
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         setHiddenWord(word
             .split('')
             .map(() => '_')
             .join(''));
-    }, [word]);
+    }, [word]);*/
 
     const reset = useCallback(() => {
         getRandomWord()

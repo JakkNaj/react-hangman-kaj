@@ -5,6 +5,10 @@ import {GlobalContext} from "../../../GlobalContext";
 
 import './ScoreTracker.css';
 
+/*
+* ScoreTracker component is responsible for displaying the player's score on the screen.
+ */
+
 const ScoreTracker = () => {
     const [score, setScore] = useState(0);
 

@@ -1,3 +1,7 @@
+/*
+* This file contains the function that fetches a random word from the API.
+ */
+
 export const fetchRandomWord = async () => {
     try {
         const response = await fetch(`https://api.datamuse.com/words?ml=animals+in+the+ocean&max=1000&`);

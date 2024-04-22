@@ -1,5 +1,9 @@
 import React, { createContext, useState } from 'react';
 
+/*
+* GlobalContext component is responsible for providing global state to all components in the application
+ */
+
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {

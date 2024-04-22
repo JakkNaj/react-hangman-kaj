@@ -5,6 +5,10 @@ import {GameStatusProvider} from "./GameStatusContext";
 import React, {useCallback, useContext, useEffect} from "react";
 import {GlobalContext} from "../GlobalContext";
 
+/*
+* Game component is responsible for rendering the Hangman game or the login page depending on the user's login status
+ */
+
 const Game = () =>  {
     const { loggedIn, setHasInternetCon } = useContext(GlobalContext);
 

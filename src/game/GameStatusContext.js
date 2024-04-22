@@ -1,5 +1,9 @@
 import React, { createContext, useContext, useState } from 'react';
 
+/*
+* GameStatusContext component is responsible for providing the game status to all components in the Game component
+ */
+
 const GameStatusContext = createContext();
 
 export const GameStatusProvider = ({ children }) => {

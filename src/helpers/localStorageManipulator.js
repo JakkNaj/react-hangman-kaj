@@ -1,3 +1,7 @@
+/*
+* This file contains helper functions to manipulate scores in local storage.
+ */
+
 export const saveScoreToLocal = (name, score) => {
     const currentScores = JSON.parse(localStorage.getItem('scores')) || {};
     currentScores[name] = score;

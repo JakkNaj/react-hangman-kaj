@@ -7,6 +7,10 @@ import Settings from "./navSettings/Settings";
 import History from "./history/History";
 import './App.css';
 
+/*
+* App component is the main component of the application and is responsible for routing between each page
+ */
+
 const App = () => {
     const { loggedIn } = useContext(GlobalContext);
 

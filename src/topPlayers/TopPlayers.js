@@ -2,6 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {getAllPlayers} from "../helpers/localStorageManipulator";
 import './TopPlayers.css';
 
+/*
+* TopPlayers component is responsible for displaying the top 3 players and the rest of the players in the local storage.
+ */
+
 const TopPlayers = () => {
     const [topPlayers, setTopPlayers] = useState([]);
     const [otherPlayers, setOtherPlayers] = useState([]);

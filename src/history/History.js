@@ -1,6 +1,10 @@
 import React from 'react';
 import './History.css';
 
+/*
+* History component is responsible for displaying the history of the Hangman game on the whole page.
+ */
+
 const History = () => {
     return (
         <section className="history-container">

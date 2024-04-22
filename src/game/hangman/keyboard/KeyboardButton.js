@@ -1,6 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './KeyboardButton.css';
 
+/*
+* KeyboardButton component is responsible for rendering a button with a letter that the player can click to guess the word.
+* It is used many times in Hangman which renders the keyboard.
+ */
+
 function KeyboardButton({ letter, onClick, isCorrectGuess, shouldReset, onReset }) {
     const [disabled, setDisabled] = useState(false);
     const [className, setClassName] = useState('');
